@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import Counter2 from "./Counter2";
+import Counter from "./Counter";
+import "./Style.css";
+
+export default function App() {
+  const [show, setShow] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Counter2 /> */}
+      <hr />
+      <button className="visibility-btn" onClick={() => setShow(!show)}>
+        {show ? "Hide Counter" : "Show Counter"}
+      </button>
+      {show && <Counter2 /> }
+      <div className="FunCounter">
+      <Counter/>
+      </div>
     </div>
   );
 }
 
-export default App;
